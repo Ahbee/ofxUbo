@@ -1,5 +1,5 @@
 ## Overview
-Uniform buffers are an alternative way to upload data to GLSL. They are available in openGl 3.2+. Normally Uniform buffers can be tedious to set up because you have to worry about layout differences between client side and GLSL. ofxUbo takes care of all that and makes it easy to use uniform buffers. ofxUbo works with shared and std140 layouts.
+Uniform buffers are an alternative way to upload data to GLSL. They are available in openGl 3.2+. Normally Uniform buffers can be tedious to set up because you have to worry about layout differences between client side and GLSL. ofxUbo takes care of all that and makes it easy to use uniform buffers. ofxUbo works with shared and std140 layouts. Tested for openframeworks 0.8.0
 
 #### Advantages over ofShader::setUniform
 1. Uniform Buffers are a more organized way to send a "struct" of data
