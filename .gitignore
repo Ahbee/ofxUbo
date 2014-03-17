@@ -4,3 +4,7 @@ example_BasicUsage/bin/example_BasicUsageDebug.app
 example_lights/bin/example_lightsDebug.app
 
 *.xcuserstate
+
+example_BasicUsage/example_BasicUsage.xcodeproj/project.xcworkspace/xcuserdata/Redi.xcuserdatad/UserInterfaceState.xcuserstate
+
+example_lights/example_lights.xcodeproj/project.xcworkspace/xcuserdata/Redi.xcuserdatad/UserInterfaceState.xcuserstate
