@@ -145,7 +145,7 @@ void ofxUbo<T>::loadDataManually(const T &newData){
     char buffer[bufferLayout.size];
     memset(buffer, '0', bufferLayout.size);
     //copy data into buffer
-    memcpy(dataPtr, buffer, sizeof(T));
+    memcpy(buffer, dataPtr, sizeof(T));
     glBindBuffer(GL_UNIFORM_BUFFER,uboId);
     glBufferSubData(GL_UNIFORM_BUFFER,0,bufferLayout.size,buffer);
 }
