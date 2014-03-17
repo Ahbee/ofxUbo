@@ -114,6 +114,52 @@ then use ofxUboShader::setUniformBuffer with an extra boolean argument
 shader.setUniformBuffer("Material", blueShine, true);
 
 ```
+for example suppose your srtuct in GLSL looks like this
+
+```
+uniform Settings{
+	vec2 center;
+	vec4 color;
+};
+```
+then shader.printLayout("Settings") will print out this
+
+```
+Block Name: Settings
+Layout Size: 32
+	Settings.center
+		GL_FLOAT_VEC2
+		offset: 0
+		size: 8
+		array Stride: 0
+		matrix Stride: 0
+	Settings.color
+		GL_FLOAT_VEC4
+		offset: 16
+		size: 16
+		array Stride: 0
+		matrix Stride: 0
+```
+
+By looking at the **Offset** info, you know your struct on the cpu side should look like this
+
+```
+struct Settings {
+    ofVec2f center;
+    float pad[2];
+    ofVec4f color;
+};
+
+```
+
+##Notes
+* You can use double types only with manual padding 
+* The auto upload does not yet support double types. To do this I need to query alignment of types. C++11 has [alignof](http://en.cppreference.com/w/cpp/language/alignof), but openframeworks currently does not support C++11. I will support doubles as soon as openframeworks upgrades. If someone knows a way to query alignments please let me know. 
+* If a struct is not uploading correctly please let me know. Post an issue with both your cpu side struct and the corresponding uniform block. I will look at it. Also try uploading manually.
+* Pull requests are encouraged 
+
+
+
 
 
 
