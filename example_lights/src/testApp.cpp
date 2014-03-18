@@ -13,6 +13,11 @@ void testApp::setup(){
     shader.load("shader");
     shader2.load("shader2");
     
+    //print layouts
+    shader.printLayout("Material");
+    shader.printLayout("Light");
+    shader.printLayout("NormalMatrix");
+    
     //load wood Image
     woodImage.loadImage("wood.jpg");
     
