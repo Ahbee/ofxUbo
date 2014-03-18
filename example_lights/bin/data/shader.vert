@@ -10,11 +10,11 @@ uniform mat4 modelViewProjectionMatrix;
 uniform mat4 modelViewMatrix;
 
 uniform NormalMatrix{
-	mat3 normalMatrix;
-};
+	mat3 matrix;
+}normalMatrix;
 
 void main(){
-	vertexNormal = normalize(normalMatrix * normal);
+	vertexNormal = normalize(normalMatrix.matrix * normal);
 	cameraSpacePosition = (modelViewMatrix * position).xyz;
 	gl_Position = modelViewProjectionMatrix * position;
 }
