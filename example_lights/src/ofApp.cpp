@@ -1,7 +1,7 @@
-#include "testApp.h"
+#include "ofApp.h"
 
 //--------------------------------------------------------------
-void testApp::setup(){
+void ofApp::setup(){
     ofEnableDepthTest();
     ofDisableArbTex();
     
@@ -37,8 +37,8 @@ void testApp::setup(){
     
     // set up tween to move light2 up and down
     up.setParameters(1, easeLinear, ofxTween::easeIn, 20, 100, 4000, 0.0);
-    ofAddListener(up.end_E, this, &testApp::upCompleted);
-    ofAddListener(down.end_E, this, &testApp::downCompleted);
+    ofAddListener(up.end_E, this, &ofApp::upCompleted);
+    ofAddListener(down.end_E, this, &ofApp::downCompleted);
     // create Materials
     blue.diffuseColor = ofVec4f(0.1, 0.1, 0.8, 1.0);
     blue.specularColor = ofVec4f(0.8, 0.8, 0.8, 1.0);
@@ -60,7 +60,7 @@ void testApp::setup(){
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
+void ofApp::update(){
     // update lightNode position
     lightNode1.rotateAround(.8, ofVec3f(0,1,0), ofVec3f(0,0,0));
     if (up.isRunning()) {
@@ -80,7 +80,7 @@ void testApp::update(){
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
+void ofApp::draw(){
     ofBackground(0);
     
     easyCam.begin();
@@ -118,51 +118,51 @@ void testApp::draw(){
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
+void ofApp::keyPressed(int key){
 
 }
 
 //--------------------------------------------------------------
-void testApp::keyReleased(int key){
+void ofApp::keyReleased(int key){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
+void ofApp::mouseMoved(int x, int y ){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
+void ofApp::mouseDragged(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
+void ofApp::mousePressed(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
+void ofApp::mouseReleased(int x, int y, int button){
 
 }
 
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
+void ofApp::windowResized(int w, int h){
 
 }
 
 //--------------------------------------------------------------
-void testApp::gotMessage(ofMessage msg){
+void ofApp::gotMessage(ofMessage msg){
 
 }
 
 //--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){ 
+void ofApp::dragEvent(ofDragInfo dragInfo){ 
 
 }
 
-ofMatrix3x3 testApp::calcNormalMatrix(ofMatrix4x4 matrix){
+ofMatrix3x3 ofApp::calcNormalMatrix(ofMatrix4x4 matrix){
     ofMatrix3x3 normalMat(matrix._mat[0].x,matrix._mat[0].y,matrix._mat[0].z,
                           matrix._mat[1].x,matrix._mat[1].y,matrix._mat[1].z,
                           matrix._mat[2].x,matrix._mat[2].y,matrix._mat[2].z);
@@ -173,11 +173,11 @@ ofMatrix3x3 testApp::calcNormalMatrix(ofMatrix4x4 matrix){
 
 //--------------------------------------------------------------
 
-void testApp::upCompleted(int &n){
+void ofApp::upCompleted(int &n){
     down.setParameters(2, easeLinear, ofxTween::easeIn, 100, 20, 4000, 0.0);
 }
 
-void testApp::downCompleted(int &n){
+void ofApp::downCompleted(int &n){
     up.setParameters(1, easeLinear, ofxTween::easeIn, 20, 100, 4000, 0.0);
     
 }
