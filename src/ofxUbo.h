@@ -76,10 +76,10 @@ template <class T>
 ofxUbo<T>::ofxUbo(const ofxUboLayout &layout){
     bindingPoint = ofxUboSingeltons::findFirstAvaliableBindingSpot();
     bufferLayout = layout;
-    char buffer[layout.size];
+    vector<char> buffer(layout.size);
     glGenBuffers(1,&uboId);
     glBindBuffer(GL_UNIFORM_BUFFER,uboId);
-    glBufferData(GL_UNIFORM_BUFFER,layout.size,buffer,GL_DYNAMIC_DRAW);
+    glBufferData(GL_UNIFORM_BUFFER,layout.size,buffer.data(),GL_DYNAMIC_DRAW);
     glBindBufferBase(GL_UNIFORM_BUFFER,bindingPoint,uboId);
 }
 //--------------------------------------------------------------
@@ -94,8 +94,7 @@ template <class T>
 void ofxUbo<T>::loadData(const T &newData){
     char* dataPtr = (char*)&newData;
     // start with a zero buffer equal to the size of the layout
-    char buffer[bufferLayout.size];
-    memset(buffer, '0', bufferLayout.size);
+    vector<char> buffer(bufferLayout.size,'0');
     
     int dataOffest = 0;
     // loop through each unifom of bufferLayout, and add them to buffer
@@ -109,7 +108,7 @@ void ofxUbo<T>::loadData(const T &newData){
                 int rowOffset = matrixOffset;
                 // This loop uploads one matrix,one row at a time
                 for (int k = 0; k < ofxUboSingeltons::matrixRowCount[uniform.type]; k++) {
-                    memcpy(buffer + rowOffset, dataPtr + dataOffest, ofxUboSingeltons::matrixRowSize[uniform.type]);
+                    memcpy(buffer.data() + rowOffset, dataPtr + dataOffest, ofxUboSingeltons::matrixRowSize[uniform.type]);
                     dataOffest+=ofxUboSingeltons::matrixRowSize[uniform.type];
                     rowOffset+=uniform.matrixStride;
                 }
@@ -118,7 +117,7 @@ void ofxUbo<T>::loadData(const T &newData){
         }else if (uniform.arrayStride == 0 && uniform.matrixStride > 0 ){ // is it a matrix
             int rowOffset = uniform.offest;
             for (int k = 0; k < ofxUboSingeltons::matrixRowCount[uniform.type]; k++) {
-                memcpy(buffer + rowOffset, dataPtr + dataOffest, ofxUboSingeltons::matrixRowSize[uniform.type]);
+                memcpy(buffer.data() + rowOffset, dataPtr + dataOffest, ofxUboSingeltons::matrixRowSize[uniform.type]);
                 dataOffest+=ofxUboSingeltons::matrixRowSize[uniform.type];
                 rowOffset+=uniform.matrixStride;
             }
@@ -126,31 +125,25 @@ void ofxUbo<T>::loadData(const T &newData){
             int offset = uniform.offest;
             int arrayCount = uniform.size/uniform.arrayStride;
             for (int j = 0; j < arrayCount; j++) {
-                memcpy(buffer+offset, dataPtr + dataOffest, ofxUboSingeltons::spGLSLTypeSize[uniform.type]);
+                memcpy(buffer.data() + offset, dataPtr + dataOffest, ofxUboSingeltons::spGLSLTypeSize[uniform.type]);
                 dataOffest+=ofxUboSingeltons::spGLSLTypeSize[uniform.type];
                 offset+=uniform.arrayStride;
             }
         }else if (uniform.arrayStride == 0 && uniform.matrixStride == 0){// is it a regular type
             int offset = uniform.offest;
-            memcpy(buffer+offset, dataPtr + dataOffest, ofxUboSingeltons::spGLSLTypeSize[uniform.type]);
+            memcpy(buffer.data() + offset, dataPtr + dataOffest, ofxUboSingeltons::spGLSLTypeSize[uniform.type]);
             dataOffest+= ofxUboSingeltons::spGLSLTypeSize[uniform.type];
         }
     }
     glBindBuffer(GL_UNIFORM_BUFFER,uboId);
-    glBufferSubData(GL_UNIFORM_BUFFER,0,bufferLayout.size,buffer);
+    glBufferSubData(GL_UNIFORM_BUFFER,0,bufferLayout.size,buffer.data());
 }
 //--------------------------------------------------------------
 
 template <class T>
 void ofxUbo<T>::loadDataManually(const T &newData){
-    char* dataPtr = (char*)&newData;
-    // start with a zero buffer equal to the size of the layout
-    char buffer[bufferLayout.size];
-    memset(buffer, '0', bufferLayout.size);
-    //copy data into buffer
-    memcpy(buffer, dataPtr, sizeof(T));
     glBindBuffer(GL_UNIFORM_BUFFER,uboId);
-    glBufferSubData(GL_UNIFORM_BUFFER,0,bufferLayout.size,buffer);
+    glBufferSubData(GL_UNIFORM_BUFFER,0,bufferLayout.size,(char*)(&newData));
 }
 
 //--------------------------------------------------------------
