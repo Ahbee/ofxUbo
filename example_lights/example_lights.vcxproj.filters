@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<ItemGroup>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\main.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\ofApp.cpp">
+			<Filter>src</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasing.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingBack.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingBounce.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingCirc.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingCubic.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingElastic.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingExpo.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingLinear.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingQuad.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingQuart.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingQuint.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\Easings\ofxEasingSine.cpp">
+			<Filter>src\src\Easings</Filter>
+		</ClCompile>
+		<ClCompile Include="src\src\ofxTween.cpp">
+			<Filter>src\src</Filter>
+		</ClCompile>
+		<ClCompile Include="..\..\..\addons\ofxUbo\src\ofxUbo.cpp">
+			<Filter>addons\ofxUbo\src</Filter>
+		</ClCompile>
+	</ItemGroup>
+	<ItemGroup>
+		<Filter Include="src">
+			<UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\src">
+			<UniqueIdentifier>{A6B223D6-C76E-261A-36F3-22F3}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="src\src\Easings">
+			<UniqueIdentifier>{A5FB0830-2DC4-27FA-B5CC-15D6}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons">
+			<UniqueIdentifier>{71834F65-F3A9-211E-73B8-DC85}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxUbo">
+			<UniqueIdentifier>{47360B40-F768-AE7D-D04D-4017}</UniqueIdentifier>
+		</Filter>
+		<Filter Include="addons\ofxUbo\src">
+			<UniqueIdentifier>{9B87CA23-4ED1-4237-972F-A9BE}</UniqueIdentifier>
+		</Filter>
+	</ItemGroup>
+	<ItemGroup>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\ofApp.h">
+			<Filter>src</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\easing_terms_of_use.html">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasing.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingBack.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingBounce.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingCirc.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingCubic.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingElastic.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingExpo.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingLinear.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingQuad.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingQuart.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingQuint.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\Easings\ofxEasingSine.h">
+			<Filter>src\src\Easings</Filter>
+		</ClInclude>
+		<ClInclude Include="src\src\ofxTween.h">
+			<Filter>src\src</Filter>
+		</ClInclude>
+		<ClInclude Include="..\..\..\addons\ofxUbo\src\ofxUbo.h">
+			<Filter>addons\ofxUbo\src</Filter>
+		</ClInclude>
+	</ItemGroup>
+	<ItemGroup>
+		<ResourceCompile Include="icon.rc" />
+	</ItemGroup>
+</Project>
