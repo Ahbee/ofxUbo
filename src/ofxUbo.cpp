@@ -203,7 +203,7 @@ ostream& operator<<(ostream& stream, const ofxUboLayout& layout){
     for (int i = 0; i < layout.uniformData.size(); i++) {
         ofxUniformInfo uniformInfo = layout.uniformData[i];
         output+= "\t" + uniformInfo.name + "\n" +
-        "\t\t" + ofxUboSingeltons::spGLSLType[uniformInfo.type] + "\n" + "\t\t"
+        "\t\t" + "type: " + ofxUboSingeltons::spGLSLType[uniformInfo.type] + "\n" + "\t\t"
         + "offset: " + ofToString(uniformInfo.offest) + "\n" + "\t\t"
         + "size: " + ofToString(uniformInfo.size) + "\n" + "\t\t"
         + "array Stride: " + ofToString(uniformInfo.arrayStride) + "\n" + "\t\t"
@@ -344,11 +344,15 @@ ofxUboLayout ofxUboShader::getLayout(const string &blockName){
         info.matrixStride = uniMatStride;
         layout.uniformData.push_back(info);
     }
+    // Sort unifoms based on offset. Some opengl drivers seem to fetch uniforms in a non sequential order.
+    // The offset data is still correct but glGetActiveUniformBlockiv feeds you uniforms in a random order.
+    ofSort(layout.uniformData);
+    
     delete indices;
     return layout;
 }
 
-
+//-------------------------------------------------------------
 
 
 

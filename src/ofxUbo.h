@@ -28,6 +28,9 @@ struct ofxUniformInfo {
     GLint size;
     GLint arrayStride;
     GLint matrixStride;
+    bool operator<(const ofxUniformInfo &a) const{
+        return offest < a.offest;
+    }
 };
 
 //--------------------------------------------------------------
