@@ -4,3 +4,5 @@ example_BasicUsage/bin/example_BasicUsageDebug.app
 example_lights/bin/example_lightsDebug.app
 
 
+
+*.sdf
