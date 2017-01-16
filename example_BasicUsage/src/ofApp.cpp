@@ -6,7 +6,7 @@ void ofApp::setup(){
     shader.load("shader");
     shader.printLayout("SwirlSettings");
     
-    flowerImage.loadImage("flowers.jpg");
+    flowerImage.load("flowers.jpg");
     
     gui.setup();
     gui.add(centerX.setup("Center X", 0.5, 0.0, 1.0));
@@ -26,7 +26,7 @@ void ofApp::update(){
 void ofApp::draw(){
     shader.begin();
     shader.setUniformBuffer("SwirlSettings", swirlSettings);
-    shader.setUniformTexture("tex", flowerImage.getTextureReference(), 0);
+    shader.setUniformTexture("tex", flowerImage.getTexture(), 0);
     ofDrawPlane(ofGetWidth()/2.0, ofGetHeight()/2.0, ofGetWidth(), ofGetHeight());
     shader.end();
     
