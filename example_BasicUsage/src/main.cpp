@@ -4,7 +4,7 @@
 //========================================================================
 int main( ){
     ofGLWindowSettings settings;
-    settings.setGLVersion(3,2); /// < select your GL Version here
+    settings.setGLVersion(3,3); /// < select your GL Version here
     ofCreateWindow(settings); ///< create your window here
     ofRunApp(new ofApp());
 
