@@ -348,7 +348,7 @@ ofxUboLayout ofxUboShader::getLayout(const string &blockName){
     // The offset data is still correct but glGetActiveUniformBlockiv feeds you uniforms in a random order.
     ofSort(layout.uniformData);
     
-    delete indices;
+    delete[] indices;
     return layout;
 }
 

@@ -19,7 +19,7 @@ void ofApp::setup(){
     shader.printLayout("NormalMatrix");
     
     //load wood Image
-    woodImage.loadImage("wood.jpg");
+    woodImage.load("wood.jpg");
     
     // set Light Nodes in intial position
     lightNode1.setPosition(0, 20, 140);
@@ -105,7 +105,7 @@ void ofApp::draw(){
     shader2.setUniformBuffer("Light", light);
     shader2.setUniformBuffer("Material", blue);
     shader2.setUniformBuffer("NormalMatrix", calcNormalMatrix(cube.getGlobalTransformMatrix()*easyCam.getModelViewMatrix()));
-    shader2.setUniformTexture("tex0", woodImage.getTextureReference(), 0);
+    shader2.setUniformTexture("tex0", woodImage.getTexture(), 0);
     cube.draw();
     shader2.end();
     
